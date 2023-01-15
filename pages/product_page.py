@@ -19,7 +19,8 @@ class ProductPage(BasePage):
     def must_be_the_name_of_the_product(self):
         name_product = self.browser.find_elements(*ProductPageLocators.MESSAGES_IN_THE_BASKET)
         name_product = name_product[0].text
-        assert self.product_name in name_product, f'Имя <{self.product_name}> не найдено в сообщении об успешной добавке'
+        print(self.product_name, name_product)
+        assert self.product_name == name_product, f'Имя <{self.product_name}> не найдено в сообщении об успешной добавке'
 
     # Цена корзины должна быть равна стоимости товара
     def must_be_price_basket_equal_price_product(self):
